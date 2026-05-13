@@ -1,7 +1,9 @@
-name: Format and Commit
+name: Check Formatting
 
 on:
   push:
+    branches: [ "main" ]
+  pull_request:
     branches: [ "main" ]
 
 jobs:
@@ -11,19 +13,13 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-        with:
-          # Important: 'ref' ensures we push back to the right place
-          ref: ${{ github.head_ref }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/checkout@v4
         with:
           node-version: '20'
 
-      - name: Fix Formatting
-        run: npx prettier --write "**.html" "**.css"
-
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: fix formatting with Prettier"
+      - name: Run Prettier Check
+        # This checks HTML and CSS files without installing anything
+        run: |
+          npx prettier --check "**.html" "**.css"

@@ -1,298 +1,315 @@
 /* 1. RESET & BASE STYLES */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: #F9F5FF;
-    color: #333;
-    line-height: 1.6;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  background-color: #f9f5ff;
+  color: #333;
+  line-height: 1.6;
 }
 
 /* 2. NAVIGATION */
 header {
-    background: white;
-    padding: 15px 8%;
-    border-bottom: 1px solid #eee;
+  background: white;
+  padding: 15px 8%;
+  border-bottom: 1px solid #eee;
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo strong {
-    color: #AF38EB;
-    font-size: 1.3rem;
-    display: block;
+  color: #af38eb;
+  font-size: 1.3rem;
+  display: block;
 }
 
 .logo span {
-    font-size: 0.8rem;
-    color: #777;
+  font-size: 0.8rem;
+  color: #777;
 }
 
 nav ul {
-    display: flex;
-    list-style: none;
-    gap: 25px;
+  display: flex;
+  list-style: none;
+  gap: 25px;
 }
 
 nav ul a {
-    text-decoration: none;
-    color: #444;
-    font-weight: 500;
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
 }
 
 /* 3. HERO SECTION */
 #hero {
-    text-align: center;
-    padding: 80px 5%;
-    background: linear-gradient(to bottom, #ffffff, #F9F5FF);
+  text-align: center;
+  padding: 80px 5%;
+  background: linear-gradient(to bottom, #ffffff, #f9f5ff);
 }
 
 .badge {
-    background: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    border: 1px solid #eee;
-    font-size: 0.85rem;
+  background: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid #eee;
+  font-size: 0.85rem;
 }
 
 #hero h1 {
-    font-size: 3.2rem;
-    color: #AF38EB;
-    margin: 20px 0;
-    font-weight: 800;
+  font-size: 3.2rem;
+  color: #af38eb;
+  margin: 20px 0;
+  font-weight: 800;
 }
 
 #hero p {
-    max-width: 650px;
-    margin: 0 auto 30px;
-    font-size: 1.1rem;
-    color: #555;
+  max-width: 650px;
+  margin: 0 auto 30px;
+  font-size: 1.1rem;
+  color: #555;
 }
 
 .hero-btns {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
 }
 
 button {
-    padding: 12px 25px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.2s;
+  padding: 12px 25px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
 }
 
 .btn-primary {
-    background: #AF38EB;
-    color: white;
+  background: #af38eb;
+  color: white;
 }
 
 .btn-secondary {
-    background: white;
-    border: 1px solid #ddd;
+  background: white;
+  border: 1px solid #ddd;
 }
 
 /* 4. LAYOUT GRIDS */
 section {
-    padding: 50px 8%;
+  padding: 50px 8%;
 }
 
 h2 {
-    margin-bottom: 35px;
-    font-size: 1.8rem;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  margin-bottom: 35px;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .grid-large {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
 }
 
 .grid-small {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 /* 5. CARD STYLING */
 article {
-    background: white;
-    border-radius: 16px;
-    border: 1px solid #f0f0f0;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #f0f0f0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
 }
 
 /* Large Card Images */
 .event-image {
-    height: 260px;
-    width: 100%;
-    position: relative;
+  height: 260px;
+  width: 100%;
+  position: relative;
 }
 
 .event-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Smart cropping to prevent stretching */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Smart cropping to prevent stretching */
 }
 
 /* Card Content */
 .card-body {
-    padding: 25px;
+  padding: 25px;
 }
 
 .card-body h3 {
-    margin-bottom: 12px;
-    font-size: 1.4rem;
+  margin-bottom: 12px;
+  font-size: 1.4rem;
 }
 
-.event-info, .mini-info {
-    font-size: 0.85rem;
-    color: #777;
-    margin: 15px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.event-info,
+.mini-info {
+  font-size: 0.85rem;
+  color: #777;
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 /* 6. BUTTONS INSIDE CARDS */
 .btn-action {
-    display: block;
-    text-align: center;
-    background: #D61A8C;
-    color: white;
-    text-decoration: none;
-    padding: 12px;
-    border-radius: 8px;
-    font-weight: bold;
+  display: block;
+  text-align: center;
+  background: #d61a8c;
+  color: white;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
 }
 
 .btn-outline {
-    display: block;
-    text-align: center;
-    border: 1px solid #eee;
-    color: #555;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-top: auto;
+  display: block;
+  text-align: center;
+  border: 1px solid #eee;
+  color: #555;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: auto;
 }
 
 /* 7. MINI CARDS (Próximos Eventos) */
 .mini-card {
-    padding: 20px;
-    min-height: 320px;
+  padding: 20px;
+  min-height: 320px;
 }
 
 .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
 }
 
 .card-header h3 {
-    font-size: 1.1rem;
-    line-height: 1.3;
+  font-size: 1.1rem;
+  line-height: 1.3;
 }
 
 /* 8. CATEGORY TAGS */
 .category-tag {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    padding: 6px 14px;
-    border-radius: 6px;
-    color: white;
-    font-size: 0.75rem;
-    font-weight: bold;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
 }
 
-.tag-desfile { background: #FFB800; }
-.tag-ent { background: #AF38EB; }
+.tag-desfile {
+  background: #ffb800;
+}
+.tag-ent {
+  background: #af38eb;
+}
 
 .mini-tag {
-    padding: 3px 8px;
-    border-radius: 4px;
-    color: white;
-    font-size: 0.65rem;
-    font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 4px;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: bold;
 }
 
-.tag-com { background: #3B82F6; }
-.tag-edu { background: #10B981; }
-.tag-cul { background: #EC4899; }
-.tag-rec { background: #F59E0B; }
+.tag-com {
+  background: #3b82f6;
+}
+.tag-edu {
+  background: #10b981;
+}
+.tag-cul {
+  background: #ec4899;
+}
+.tag-rec {
+  background: #f59e0b;
+}
 
 /* 9. COMUNIDAD SECTION */
 .comunidad-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .comunidad-card {
-    background: white;
-    padding: 40px 25px;
-    text-align: center;
-    border-radius: 12px;
-    border: 1px solid #f0f0f0;
+  background: white;
+  padding: 40px 25px;
+  text-align: center;
+  border-radius: 12px;
+  border: 1px solid #f0f0f0;
 }
 
 .icon-circle {
-    width: 64px;
-    height: 64px;
-    background: #f3e8ff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    font-size: 1.6rem;
+  width: 64px;
+  height: 64px;
+  background: #f3e8ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 1.6rem;
 }
 
 /* 10. FOOTER */
 footer {
-    background: #3e1f47;
-    color: white;
-    padding: 60px 8% 30px;
+  background: #3e1f47;
+  color: white;
+  padding: 60px 8% 30px;
 }
 
 .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 50px;
-    margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 40px;
 }
 
 footer a {
-    color: #bbb;
-    text-decoration: none;
-    font-size: 0.9rem;
-    line-height: 2.2;
+  color: #bbb;
+  text-decoration: none;
+  font-size: 0.9rem;
+  line-height: 2.2;
 }
 
 .copyright {
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 25px;
-    text-align: center;
-    font-size: 0.8rem;
-    color: #888;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 25px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #888;
 }
