@@ -1,0 +1,25 @@
+name: Check Formatting
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/checkout@v4
+        with:
+          node-version: '20'
+
+      - name: Run Prettier Check
+        # This checks HTML and CSS files without installing anything
+        run: |
+          npx prettier --check "**.html" "**.css"
