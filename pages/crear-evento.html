@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Publicar Evento | Orgullo Caracas</title>
+    <!-- Apuntando correctamente a tu archivo CSS principal -->
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <style>
+        /* Estilos específicos para el formulario integrados con tu diseño */
+        .form-container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 0 5%;
+        }
+        .form-section {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .form-section h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 10px;
+            font-size: 1.25rem;
+            color: #1e293b;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 600px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+        label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #475569;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="url"],
+        input[type="number"],
+        input[type="datetime-local"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            box-sizing: border-box;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #af38eb;
+            box-shadow: 0 0 0 1px #af38eb;
+        }
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 8px;
+        }
+        @media (max-width: 480px) {
+            .radio-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        .radio-label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+            cursor: pointer;
+        }
+        .radio-label input {
+            margin-right: 8px;
+        }
+        .file-help {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">
+            <strong><a href="../index.html" style="text-decoration: none; color: inherit">Orgullo Caracas</a></strong>
+            <span>Eventos LGBT+ en la capital</span>
+        </div>
+        <ul>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="comunidad.html">Comunidad</a></li>
+            <li><a href="recursos.html">Recursos</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="form-container">
+    <div style="text-align: center; margin-bottom: 30px;">
+        <span class="badge">✨ Suma tu iniciativa</span>
+        <h1 style="margin-top: 10px;">Publicar un Evento</h1>
+        <p>Comparte un espacio seguro, cultural o de apoyo para la comunidad en Caracas.</p>
+    </div>
+
+    <form action="/api/events" method="POST" enctype="multipart/form-data">
+
+        <!-- Sección 1: Organizador -->
+        <section class="form-section">
+            <h2>1. Datos del Organizador</h2>
+            <div class="grid-2" style="margin-top: 20px;">
+                <div class="form-group">
+                    <label for="organizerName">Organización / Host *</label>
+                    <input type="text" id="organizerName" name="organizerName" placeholder="Ej. Orgullo Caracas" required>
+                </div>
+                <div class="form-group">
+                    <label for="organizerEmail">Correo de Contacto *</label>
+                    <input type="email" id="organizerEmail" name="organizerEmail" placeholder="ejemplo@correo.com" required>
+                    <p class="file-help">Se usa estrictamente para verificación interna.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 2: Detalles del Evento -->
+        <section class="form-section">
+            <h2>2. Detalles del Evento</h2>
+            <div style="margin-top: 20px;">
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label for="title">Título del Evento *</label>
+                        <input type="text" id="title" name="title" placeholder="Ej. Picnic del Orgullo 2026" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Categoría *</label>
+                        <select id="category" name="category" required>
+                            <option value="">Selecciona una categoría</option>
+                            <option value="desfile">Desfile / Marcha</option>
+                            <option value="entretenimiento">Entretenimiento / Fiesta</option>
+                            <option value="comunidad">Reunión Comunitaria</option>
+                            <option value="educacion">Educación / Taller</option>
+                            <option value="cultura">Cultura / Cine</option>
+                            <option value="recreacion">Recreación / Aire Libre</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Descripción del Evento *</label>
+                    <textarea id="description" name="description" rows="5" placeholder="Cuéntale a la comunidad de qué trata el evento..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="imageUpload">Imagen / Poster del Evento</label>
+                    <input type="file" id="imageUpload" name="imageUpload" accept="image/png, image/jpeg">
+                    <p class="file-help">Formatos: PNG, JPG. Tamaño máximo: 2MB.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 3: Fecha y Hora -->
+        <section class="form-section">
+            <h2>3. Fecha y Hora</h2>
+            <div class="grid-2" style="margin-top: 20px;">
+                <div class="form-group">
+                    <label for="startDateTime">Inicio *</label>
+                    <input type="datetime-local" id="startDateTime" name="startDateTime" required>
+                </div>
+                <div class="form-group">
+                    <label for="endDateTime">Fin *</label>
+                    <input type="datetime-local" id="endDateTime" name="endDateTime" required>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 4: Ubicación -->
+        <section class="form-section">
+            <h2>4. Ubicación / Lugar</h2>
+            <div style="margin-top: 20px;">
+                <div class="form-group">
+                    <label for="venueName">Nombre del Lugar *</label>
+                    <input type="text" id="venueName" name="venueName" placeholder="Ej. Plaza Venezuela, Centro Cultural Chacao..." required>
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label for="municipio">Municipio *</label>
+                        <select id="municipio" name="municipio" required>
+                            <option value="">Selecciona el municipio</option>
+                            <option value="chacao">Chacao</option>
+                            <option value="baruta">Baruta</option>
+                            <option value="libertador">Libertador</option>
+                            <option value="sucre">Sucre</option>
+                            <option value="el-hatillo">El Hatillo</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="addressDetail">Dirección Específica *</label>
+                        <input type="text" id="addressDetail" name="addressDetail" placeholder="Ej. Av. Francisco de Miranda, cerca del metro" required>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 5: Entradas -->
+        <section class="form-section">
+            <h2>5. Entradas y Acceso</h2>
+            <div style="margin-top: 20px;">
+                <div class="form-group">
+                    <label>Tipo de Entrada *</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="admissionType" value="free" checked onclick="toggleTicketing()">
+                            Entrada Libre
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="admissionType" value="paid" onclick="toggleTicketing()">
+                            Evento Pago
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="admissionType" value="donation" onclick="toggleTicketing()">
+                            Contribución Voluntaria
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Campos dinámicos ocultos por defecto -->
+                <div id="ticketingFields" class="hidden grid-2" style="padding-top: 10px;">
+                    <div class="form-group">
+                        <label for="price">Precio de la Entrada ($ / Bs)</label>
+                        <input type="number" id="price" name="price" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label for="ticketUrl">Link de Registro o Compra</label>
+                        <input type="url" id="ticketUrl" name="ticketUrl" placeholder="https://...">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Botones de Acción usando tus clases nativas -->
+        <div class="form-actions">
+            <a href="../index.html" class="btn-secondary" style="text-decoration: none; text-align: center; line-height: 2.2;">Cancelar</a>
+            <button type="submit" class="btn-primary" style="cursor: pointer;">Publicar Evento</button>
+        </div>
+
+    </form>
+</main>
+
+<footer>
+    <p class="copyright">© 2026 Orgullo Caracas. Amor es amor. 🏳️‍🌈</p>
+</footer>
+
+<!-- Lógica JavaScript local para la interactividad del precio -->
+<script>
+    function toggleTicketing() {
+        const selectedType = document.querySelector('input[name="admissionType"]:checked').value;
+        const ticketingContainer = document.getElementById('ticketingFields');
+        const priceInput = document.getElementById('price');
+
+        if (selectedType === 'paid' || selectedType === 'donation') {
+            ticketingContainer.classList.remove('hidden');
+            priceInput.required = (selectedType === 'paid');
+        } else {
+            ticketingContainer.classList.add('hidden');
+            priceInput.required = false;
+            priceInput.value = '';
+        }
+    }
+</script>
+</body>
+</html>
